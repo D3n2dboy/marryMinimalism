@@ -1,0 +1,44 @@
+// Общие стили писать тут
+//=============================================================================================================================================
+
+// Заголовки
+
+
+// Ссылки
+
+.disabled {
+    background-color: #afafaf;
+    border-color: inherit;
+    pointer-events: none;
+}
+
+// Элементы формы
+
+
+// Прочее
+
+.icons {
+    display: inline-block;
+    font-size: 40px;
+}
+
+.anim-icons {
+    animation: heart 2s infinite ease-in-out;
+}
+
+@keyframes heart {
+    to {
+        transform: scale(1.05);
+        color: red;
+    }
+
+    50% {
+        transform: scale(0.9);
+        color: #000;
+    }
+
+    from {
+        transform: scale(1.1);
+        color: red;
+    }
+}

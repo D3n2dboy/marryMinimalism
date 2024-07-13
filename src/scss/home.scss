@@ -1,0 +1,397 @@
+// страница home
+
+.section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 35px;
+
+    &:not(:last-child) {
+        margin-bottom: 80px;
+    }
+
+    // .section__container
+
+    &__container {
+        display: flex;
+
+
+        @media (max-width:$mobile) {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        @media (min-width:$mobile) {
+            width: 100%;
+        }
+    }
+
+    // .section__left
+
+    &__left {
+        flex: 0 0 40%;
+
+        @media (min-width:$mobile) {
+            padding-right: 30px;
+        }
+    }
+
+    // .section__title
+
+    &__title {
+        font-size: 40px;
+
+        &:not(:last-child) {
+            margin-bottom: 10px;
+        }
+
+        @media (max-width:$mobile) {
+            text-align: center;
+        }
+    }
+
+    // .section__sub-title
+
+    &__sub-title {
+        font-size: 25px;
+        text-transform: none;
+        font-family: $fontSub;
+        color: $fontSubColor;
+        transform: rotate(-2deg);
+        margin-bottom: 15px;
+        text-align: center;
+
+        @media (min-width:$mobile) {
+            padding-left: 35px;
+            text-align: left;
+        }
+    }
+
+    // .section__right
+
+    &__right {
+        flex: 0 1 60%;
+        padding-top: 10px;
+        line-height: 1.5;
+
+        p {
+            &:not(:last-child) {
+                margin-bottom: 10px;
+            }
+        }
+
+        @media (max-width:$mobile) {
+            text-align: center;
+        }
+    }
+
+    // .section__center
+
+    &__center {
+        position: relative;
+        text-align: center;
+        margin: 0 auto;
+        max-width: 300px;
+        display: flex;
+        flex-direction: column;
+
+        & .section__title {
+            font-size: 60px;
+        }
+
+        & .section__sub-title {
+            font-size: 30px;
+            margin-bottom: 45px;
+            text-align: center;
+            padding: 0;
+        }
+    }
+}
+
+.map {
+
+    & .section__center {
+        max-width: 500px;
+    }
+}
+
+.wedding-table {
+
+    // .wedding-table__items
+
+    &__items {
+        display: flex;
+        flex-direction: column;
+    }
+
+    // .wedding-table__item
+
+    &__item {
+        display: flex;
+
+        @media (max-width:$mobile) {
+            justify-content: space-between;
+        }
+
+        @media (max-width:$mobileSmall) {
+            flex-direction: column;
+        }
+
+        @media (max-width:$mobileSmall) {
+            padding: 25px 0;
+            align-items: center;
+            text-align: center;
+
+            &:not(:last-child) {
+                border-bottom: 1px solid rgb(7, 2, 2);
+            }
+        }
+    }
+
+    // .wedding-table__text
+
+    &__text {
+        @media (min-width:$mobile) {}
+
+        @media (min-width:$mobileSmall) {
+            padding-right: 25px;
+            margin-right: 25px;
+            flex: 0 0 60%;
+            border-right: 1px solid rgb(7, 2, 2);
+        }
+
+        @media (max-width:$mobile) {
+            flex: 0 0 70%;
+        }
+    }
+
+    // .wedding-table__title
+
+    &__title {
+        font-size: 25px;
+        text-transform: uppercase;
+
+        &:not(:last-child) {
+            margin-bottom: 15px;
+        }
+    }
+
+    // .wedding-table__sub-title
+
+    &__sub-title {
+        font-family: $fontText;
+        font-size: 15px;
+        line-height: 1.5;
+        color: $fontTextColor;
+        padding-bottom: 35px;
+
+        @media (max-width:$mobileSmall) {
+            padding-bottom: 10px;
+        }
+    }
+
+    // .wedding-table__date
+
+    &__date {
+        font-size: 45px;
+
+        @media (max-width:$mobile) {
+            font-size: 35px;
+        }
+
+        @media (min-width:$mobileSmall) {
+            margin-right: 25px;
+        }
+    }
+}
+
+.dress-code {
+    font-family: $fontText;
+    color: $fontTextColor;
+    font-size: 15px;
+    //max-width: 50%;
+
+    // .dress-code__body
+
+    &__body {}
+
+    // .dress-code__text
+
+    &__text {
+        &:not(:last-child) {
+            margin-bottom: 35px;
+        }
+    }
+
+    // .dress-code__items
+
+    &__items {
+        display: flex;
+    }
+
+    // .dress-code__item
+
+    &__item {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        border: 1px solid #ebebeb;
+
+        @media (max-width:$mobile) {
+            width: 50px;
+            height: 50px;
+        }
+
+        &:nth-child(1) {
+            background-color: rgb(10, 39, 77);
+        }
+
+        &:nth-child(2) {
+            background-color: rgb(65, 66, 124);
+            transform: translateX(-40%);
+        }
+
+        &:nth-child(3) {
+            background-color: rgb(69, 89, 126);
+            transform: translateX(-80%);
+        }
+
+        &:nth-child(4) {
+            background-color: rgb(78, 81, 105);
+            transform: translateX(-120%);
+        }
+
+        &:nth-child(5) {
+            background-color: rgb(71, 57, 109);
+            transform: translateX(-160%);
+        }
+    }
+}
+
+.personal-information {
+    width: 100%;
+
+    // .personal-information__body
+
+    &__body {
+        display: flex;
+        flex-direction: column;
+    }
+
+    // .personal-information__text
+
+    &__text {
+        &:not(:last-child) {
+            margin-bottom: 35px;
+        }
+    }
+
+    // .personal-information__form
+
+    &__form {}
+}
+
+.personal-form {
+
+    // .personal-form__line
+
+    &__line {
+        &:not(:last-child) {
+            margin-bottom: 25px;
+        }
+    }
+
+    // .personal-form__input
+
+    &__input {
+        width: 100%;
+        border-bottom: 1px solid #5e5e5e;
+        padding: 10px;
+    }
+
+    // .personal-form__radio
+
+    &__radio {
+        &:not(:last-child) {
+            margin-bottom: 25px;
+        }
+
+        & .radio__label {
+            width: 100%;
+        }
+    }
+
+    // .personal-form__button
+
+    &__button {}
+}
+
+// TIMER ===========================================================================================================================
+
+.time {
+
+    // .time__items
+
+    &__items {
+        display: flex;
+        gap: 20px;
+
+        @media (max-width:$mobileSmall) {
+            gap: 10px;
+        }
+    }
+
+    // .time__item
+
+    &__item {
+        background-color: #ebebeb;
+        border-radius: 15px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 70px;
+        padding: 5px 3px;
+        box-shadow: 0px 0px 8px 0px rgba(107, 107, 107, 0.2);
+
+        @media (max-width:$mobileSmall) {
+            width: 60px;
+        }
+    }
+
+    // .time__number
+
+    &__number {
+        font-size: 35px;
+        line-height: 1;
+
+        @media (max-width:$mobileSmall) {
+            font-size: 30px;
+        }
+    }
+
+    // .time__label
+
+    &__label {
+        @media (max-width:$mobileSmall) {
+            font-size: 15px;
+        }
+    }
+
+    // .time__finish
+
+    &__finish {
+        font-size: 35px;
+    }
+}
+
+// PHOTO
+
+.photo {
+
+    // .photo__button
+
+    &__button {
+        display: inline-block;
+        margin-top: 20px;
+    }
+}
