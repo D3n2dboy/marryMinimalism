@@ -1,0 +1,753 @@
+@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Cormorant:300,regular,500,600,700,300italic,italic,500italic,600italic,700italic&display=swap);
+@import url(https://fonts.googleapis.com/css?family=Dancing+Script:regular,500,600,700&display=swap);
+@import url(https://fonts.googleapis.com/css?family=Montserrat:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic&display=swap);
+@font-face {
+  font-family: icons;
+  font-display: swap;
+  src: url("../fonts/icons.woff2") format("woff2"), url("../fonts/icons.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+[class*=_icon-]:before {
+  font-family: "icons";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+._icon-dress:before {
+  content: "\e907";
+}
+
+._icon-heart:before {
+  content: "\e900";
+}
+
+._icon-play:before {
+  content: "\e901";
+}
+
+._icon-geo:before {
+  content: "\e902";
+}
+
+._icon-photo:before {
+  content: "\e903";
+}
+
+._icon-question:before {
+  content: "\e904";
+}
+
+._icon-sound:before {
+  content: "\e905";
+}
+
+._icon-calendar:before {
+  content: "\e906";
+}
+
+* {
+  padding: 0px;
+  margin: 0px;
+  border: 0px;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  min-width: 320px;
+}
+
+body {
+  color: #1b1b1b;
+  line-height: 1;
+  font-family: "Cormorant";
+  font-size: 1.25rem;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+input,
+button,
+textarea {
+  font-family: "Cormorant";
+  font-size: inherit;
+}
+
+/* троиточие для длинных placeholder
+input[placeholder] {
+    text-overflow: ellipsis;
+}
+*/
+button {
+  cursor: pointer;
+  color: inherit;
+  background-color: inherit;
+}
+
+a {
+  color: inherit;
+}
+
+a:link,
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: inherit;
+  font-size: inherit;
+}
+
+.lock body {
+  overflow: hidden;
+  touch-action: none;
+}
+.wrapper {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.wrapper > main {
+  flex: 1 1 auto;
+}
+.wrapper > * {
+  min-width: 0;
+}
+
+/*
+(i) Стили будут применяться ко 
+всем классам содержащим *__container
+Например header__container, main__container и т.д.
+Снипет (HTML): cnt
+*/
+[class*=__container] {
+  max-width: 43.75rem;
+  box-sizing: content-box;
+  margin: 0 auto;
+  padding: 0 0.9375rem;
+}
+
+.button {
+  font-weight: 600;
+  font-size: 16px;
+  color: #fff;
+  transition: all 0.2s ease;
+  background: #203239;
+  padding: 12px 40px;
+  border-radius: 10px;
+  border: 1px solid #203239;
+  /*срабатывает при клике пили переходе на tab */
+  /*удерживает кнопку мыши на элементе*/
+}
+.button:focus {
+  outline: 2px solid #000;
+  outline-offset: 3px;
+}
+.button:hover {
+  opacity: 0.8;
+  box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.08);
+}
+.button:active {
+  transform: translateY(2px);
+}
+
+.checkbox {
+  position: relative;
+}
+.checkbox__item {
+  display: flex;
+  align-items: center;
+}
+.checkbox__item:not(:last-child) {
+  margin-bottom: 10px;
+}
+.checkbox__input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+.checkbox__input:focus + .checkbox__label {
+  outline: 1px solid red;
+}
+.checkbox__input:checked + .checkbox__label::after {
+  transform: scale(1);
+}
+.checkbox__label {
+  display: inline-flex;
+  column-gap: 10px;
+  align-items: center;
+  position: relative;
+}
+.checkbox__label::before {
+  content: "";
+  flex: 0 0 20px;
+  align-self: flex-start;
+  height: 20px;
+  border: 2px solid #000;
+  border-radius: 5px;
+}
+.checkbox__label::after {
+  content: "";
+  cursor: pointer;
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+  background-color: #000;
+  transition: transform 0.3s ease;
+  transform: scale(0);
+}
+.radio {
+  position: relative;
+}
+.radio__item:not(:last-child) {
+  margin-bottom: 10px;
+}
+.radio__input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+.radio__input:checked + .radio__label::after {
+  transform: scale(1);
+}
+.radio__label {
+  display: inline-flex;
+  column-gap: 10px;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+}
+.radio__label::before {
+  content: "";
+  cursor: pointer;
+  flex: 0 0 20px;
+  align-self: flex-start;
+  height: 20px;
+  border: 2px solid #000;
+  border-radius: 50%;
+}
+.radio__label::after {
+  content: "";
+  cursor: pointer;
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 12px;
+  height: 12px;
+  background-color: #000;
+  transition: transform 0.3s ease;
+  transform: scale(0);
+  border-radius: 50%;
+}
+
+[class*=-ibg] {
+  position: relative;
+}
+[class*=-ibg] img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+}
+
+[class*=-ibg_contain] img {
+  object-fit: contain;
+}
+
+.disabled {
+  background-color: #afafaf;
+  border-color: inherit;
+  pointer-events: none;
+}
+
+.icons {
+  display: inline-block;
+  font-size: 40px;
+}
+
+.anim-icons {
+  animation: heart 2s infinite ease-in-out;
+}
+
+@keyframes heart {
+  to {
+    transform: scale(1.05);
+    color: red;
+  }
+  50% {
+    transform: scale(0.9);
+    color: #000;
+  }
+  from {
+    transform: scale(1.1);
+    color: red;
+  }
+}
+/*
+.icon-menu {
+    display: none;
+
+    @media (max-width: $mobile) {
+        display: block;
+        position: relative;
+        width: rem(30);
+        height: rem(18);
+        cursor: pointer;
+        z-index: 5;
+
+        span,
+        &::before,
+        &::after {
+            content: "";
+            transition: all 0.3s ease 0s;
+            right: 0;
+            position: absolute;
+            width: 100%;
+            height: rem(2);
+            background-color: #000;
+        }
+
+        &::before {
+            top: 0;
+        }
+
+        &::after {
+            bottom: 0;
+        }
+
+        span {
+            top: calc(50% - rem(1));
+        }
+
+        .menu-open & {
+            span {
+                width: 0;
+            }
+
+            &::before {
+                top: calc(50% - rem(1));
+                transform: rotate(-45deg);
+            }
+
+            &::after {
+                bottom: calc(50% - rem(1));
+                transform: rotate(45deg);
+            }
+        }
+    }
+}
+*/
+.header {
+  position: relative;
+  text-transform: uppercase;
+  text-align: center;
+}
+.header:not(:last-child) {
+  margin-bottom: 80px;
+}
+.header__container {
+  max-width: 400px;
+}
+.header__top {
+  padding: 25px 0;
+}
+.header__sub-title {
+  font-size: 12px;
+  text-transform: none;
+  font-family: "Dancing Script";
+  color: rgb(38, 38, 190);
+  transform: rotate(-2deg);
+}
+.header__date {
+  position: relative;
+  font-size: 60px;
+}
+.header__names {
+  padding: 80px 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  font-size: 65px;
+  z-index: 2;
+}
+.header__names::after {
+  content: "&";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  font-size: 300px;
+  color: #eee;
+  z-index: -1;
+}
+.header__hames-husband:not(:last-child) {
+  margin-bottom: 20px;
+}
+.header__footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-transform: none;
+  gap: 30px;
+  font-family: "Montserrat";
+  font-size: 15px;
+  line-height: 1.2;
+}
+
+.audio {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.audio__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 70px;
+  background-color: rgb(238, 238, 238);
+  border-radius: 50%;
+  font-size: 25px;
+  transition: all 0.2s ease;
+  /*срабатывает при клике пили переходе на tab */
+  /*удерживает кнопку мыши на элементе*/
+}
+.audio__button span {
+  transform: translateY(5px);
+}
+.audio__button:not(:last-child) {
+  margin-bottom: 10px;
+}
+.audio__button:focus {
+  outline: 2px solid #000;
+  outline-offset: 3px;
+}
+@media (any-hover: hover) {
+  .audio__button:hover {
+    box-shadow: 0px 0px 8px 0px rgba(34, 60, 80, 0.2);
+  }
+}
+.audio__text {
+  font-size: 17px;
+  text-transform: none;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 35px;
+}
+.section:not(:last-child) {
+  margin-bottom: 80px;
+}
+.section__container {
+  display: flex;
+}
+@media (max-width: 47.99875em) {
+  .section__container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+@media (min-width: 47.99875em) {
+  .section__container {
+    width: 100%;
+  }
+}
+.section__left {
+  flex: 0 0 40%;
+}
+@media (min-width: 47.99875em) {
+  .section__left {
+    padding-right: 30px;
+  }
+}
+.section__title {
+  font-size: 40px;
+}
+.section__title:not(:last-child) {
+  margin-bottom: 10px;
+}
+@media (max-width: 47.99875em) {
+  .section__title {
+    text-align: center;
+  }
+}
+.section__sub-title {
+  font-size: 25px;
+  text-transform: none;
+  font-family: "Dancing Script";
+  color: rgb(38, 38, 190);
+  transform: rotate(-2deg);
+  margin-bottom: 15px;
+  text-align: center;
+}
+@media (min-width: 47.99875em) {
+  .section__sub-title {
+    padding-left: 35px;
+    text-align: left;
+  }
+}
+.section__right {
+  flex: 0 1 60%;
+  padding-top: 10px;
+  line-height: 1.5;
+}
+.section__right p:not(:last-child) {
+  margin-bottom: 10px;
+}
+@media (max-width: 47.99875em) {
+  .section__right {
+    text-align: center;
+  }
+}
+.section__center {
+  position: relative;
+  text-align: center;
+  margin: 0 auto;
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+}
+.section__center .section__title {
+  font-size: 60px;
+}
+.section__center .section__sub-title {
+  font-size: 30px;
+  margin-bottom: 45px;
+  text-align: center;
+  padding: 0;
+}
+
+.map .section__center {
+  max-width: 500px;
+}
+
+.wedding-table__items {
+  display: flex;
+  flex-direction: column;
+}
+.wedding-table__item {
+  display: flex;
+}
+@media (max-width: 47.99875em) {
+  .wedding-table__item {
+    justify-content: space-between;
+  }
+}
+@media (max-width: 29.99875em) {
+  .wedding-table__item {
+    flex-direction: column;
+  }
+}
+@media (max-width: 29.99875em) {
+  .wedding-table__item {
+    padding: 25px 0;
+    align-items: center;
+    text-align: center;
+  }
+  .wedding-table__item:not(:last-child) {
+    border-bottom: 1px solid rgb(7, 2, 2);
+  }
+}
+@media (min-width: 29.99875em) {
+  .wedding-table__text {
+    padding-right: 25px;
+    margin-right: 25px;
+    flex: 0 0 60%;
+    border-right: 1px solid rgb(7, 2, 2);
+  }
+}
+@media (max-width: 47.99875em) {
+  .wedding-table__text {
+    flex: 0 0 70%;
+  }
+}
+.wedding-table__title {
+  font-size: 25px;
+  text-transform: uppercase;
+}
+.wedding-table__title:not(:last-child) {
+  margin-bottom: 15px;
+}
+.wedding-table__sub-title {
+  font-family: "Montserrat";
+  font-size: 15px;
+  line-height: 1.5;
+  color: #a5a5a5;
+  padding-bottom: 35px;
+}
+@media (max-width: 29.99875em) {
+  .wedding-table__sub-title {
+    padding-bottom: 10px;
+  }
+}
+.wedding-table__date {
+  font-size: 45px;
+}
+@media (max-width: 47.99875em) {
+  .wedding-table__date {
+    font-size: 35px;
+  }
+}
+@media (min-width: 29.99875em) {
+  .wedding-table__date {
+    margin-right: 25px;
+  }
+}
+
+.dress-code {
+  font-family: "Montserrat";
+  color: #a5a5a5;
+  font-size: 15px;
+}
+.dress-code__text:not(:last-child) {
+  margin-bottom: 35px;
+}
+.dress-code__items {
+  display: flex;
+}
+.dress-code__item {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 1px solid #ebebeb;
+}
+@media (max-width: 47.99875em) {
+  .dress-code__item {
+    width: 50px;
+    height: 50px;
+  }
+}
+.dress-code__item:nth-child(1) {
+  background-color: rgb(10, 39, 77);
+}
+.dress-code__item:nth-child(2) {
+  background-color: rgb(65, 66, 124);
+  transform: translateX(-40%);
+}
+.dress-code__item:nth-child(3) {
+  background-color: rgb(69, 89, 126);
+  transform: translateX(-80%);
+}
+.dress-code__item:nth-child(4) {
+  background-color: rgb(78, 81, 105);
+  transform: translateX(-120%);
+}
+.dress-code__item:nth-child(5) {
+  background-color: rgb(71, 57, 109);
+  transform: translateX(-160%);
+}
+
+.personal-information {
+  width: 100%;
+}
+.personal-information__body {
+  display: flex;
+  flex-direction: column;
+}
+.personal-information__text:not(:last-child) {
+  margin-bottom: 35px;
+}
+.personal-form__line:not(:last-child) {
+  margin-bottom: 25px;
+}
+.personal-form__input {
+  width: 100%;
+  border-bottom: 1px solid #5e5e5e;
+  padding: 10px;
+}
+.personal-form__radio:not(:last-child) {
+  margin-bottom: 25px;
+}
+.personal-form__radio .radio__label {
+  width: 100%;
+}
+.time__items {
+  display: flex;
+  gap: 20px;
+}
+@media (max-width: 29.99875em) {
+  .time__items {
+    gap: 10px;
+  }
+}
+.time__item {
+  background-color: #ebebeb;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 70px;
+  padding: 5px 3px;
+  box-shadow: 0px 0px 8px 0px rgba(107, 107, 107, 0.2);
+}
+@media (max-width: 29.99875em) {
+  .time__item {
+    width: 60px;
+  }
+}
+.time__number {
+  font-size: 35px;
+  line-height: 1;
+}
+@media (max-width: 29.99875em) {
+  .time__number {
+    font-size: 30px;
+  }
+}
+@media (max-width: 29.99875em) {
+  .time__label {
+    font-size: 15px;
+  }
+}
+.time__finish {
+  font-size: 35px;
+}
+
+.photo__button {
+  display: inline-block;
+  margin-top: 20px;
+}
